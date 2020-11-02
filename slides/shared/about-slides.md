@@ -2,7 +2,7 @@
 
 - We recommend that you open these slides in your browser:
 
-  @@SLIDES@@
+  (https://github.com/wesreisz/container.training)
 
 - Use arrows to move to next/previous slide
 
@@ -22,13 +22,9 @@
 
   (let's say we'll keep them online at least 1 year, how about that?)
 
-- You can download the slides using that URL:
+- You can find instructions on accessing the slides at the github url
 
-  @@ZIP@@
-
-  (then open the file `@@HTML@@`)
-
-- You will find new versions of these slides on:
+- You will find the originaal material along with other update new versions of these slides on:
 
   https://container.training/
 
@@ -43,6 +39,8 @@
 - The sources of these slides are available in a public GitHub repository:
 
   https://@@GITREPO@@
+
+  my changes are: https://github.com/wesreisz/container.training
 
 - Typos? Mistakes? Questions? Feel free to hover over the bottom of the slide ...
 

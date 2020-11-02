@@ -232,6 +232,7 @@ aws_sync_keys() {
 
     AWS_KEY_NAME=$(make_key_name)
     info "Syncing keys... "
+    info ${AWS_KEY_NAME} 
     if ! aws ec2 describe-key-pairs --key-name "$AWS_KEY_NAME" &>/dev/null; then
         aws ec2 import-key-pair --key-name $AWS_KEY_NAME \
             --public-key-material "$(ssh-add -L \

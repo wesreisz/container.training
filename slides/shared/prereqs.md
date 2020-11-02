@@ -48,7 +48,6 @@ Misattributed to Benjamin Franklin
 
 - This is the stuff you're supposed to do!
 
-- Go to @@SLIDES@@ to view these slides
 
 <!-- ```open @@SLIDES@@``` -->
 
@@ -72,15 +71,18 @@ class: in-person
 
 ## You get a cluster of cloud VMs
 
-- Each person gets a private cluster of cloud VMs (not shared with anybody else)
+- I won't be using the same clusters that the original material covers
 
-- They'll remain up for the duration of the workshop
+- You will each have your own EKS cluster (We'll talk about some of the differences)
 
-- You should have a little card with login+password+IP addresses
+- Kubectl is used to manage your cluster. This will be installed on your local machine (it's a single binary that will 
+need to be in your path)
 
-- You can automatically SSH from one VM to another
-
-- The nodes have aliases: `node1`, `node2`, etc.
+```bash
+kubectl cluster-info
+Kubernetes master is running at https://DF109763A68ED929C60134D38EA4D839.gr7.us-east-1.eks.amazonaws.com
+CoreDNS is running at https://DF109763A68ED929C60134D38EA4D839.gr7.us-east-1.eks.amazonaws.com/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+```
 
 ---
 
@@ -118,52 +120,34 @@ class: in-person
   - [Git BASH](https://git-for-windows.github.io/)
   - [MobaXterm](http://mobaxterm.mobatek.net/)
 
-- On Android, [JuiceSSH](https://juicessh.com/)
-  ([Play Store](https://play.google.com/store/apps/details?id=com.sonelli.juicessh))
-  works pretty well
-
-- Nice-to-have: [Mosh](https://mosh.org/) instead of SSH, if your internet connection tends to lose packets
-
 ---
 
-class: in-person, extra-details
+class: in-person
 
-## What is this Mosh thing?
+## Connecting to Our Environment
 
-*You don't have to use Mosh or even know about it to follow along.
-<br/>
-We're just telling you about it because some of us think it's cool!*
+- We'll dive into kubectl more in a bit, but for now... let's make sure we have it installed
 
-- Mosh is "the mobile shell"
+.exercise[
+If you don't have kubectl installed, install it: (https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+& get validate you can get a version 'kubectl version --client'
+]
 
-- It is essentially SSH over UDP, with roaming features
-
-- It retransmits packets quickly, so it works great even on lossy connections
-
-  (Like hotel or conference WiFi)
-
-- It has intelligent local echo, so it works great even in high-latency connections
-
-  (Like hotel or conference WiFi)
-
-- It supports transparent roaming when your client IP address changes
-
-  (Like when you hop from hotel to conference WiFi)
-
+Tip:
+```bash
+curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl"
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+kubectl version --client
+```
 ---
 
-class: in-person, extra-details
+class: in-person
 
-## Using Mosh
+## Connecting to Our Environment
 
-- To install it: `(apt|yum|brew) install mosh`
+- Now let's get to our cluster...
 
-- It has been pre-installed on the VMs that we are using
-
-- To connect to a remote machine: `mosh user@host`
-
-  (It is going to establish an SSH connection, then hand off to UDP)
-
-- It requires UDP ports to be open
-
-  (By default, it uses a UDP port between 60000 and 61000)
+.exercise[
+This is the info needed to connect to the cluster
+]
